@@ -1,0 +1,89 @@
+<img style="width: 58px;" src="data:image/png;base64,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"><div class="wrapper-header ">
+    <div class="page-header container">
+		<div class="col-sm-6 col-xs-6">
+		  <div class="page-title">
+			<h3> Contact Us <small> Layout sample I </small></h3>
+		  </div>
+		</div>
+		<div class="col-sm-6 col-xs-6 ">
+		  <ul class="breadcrumb pull-right">
+			<li><a href="<?php echo URL::to(''); ?>">Home</a></li>
+			<li class="active">About Us </li>
+		  </ul>		
+		</div>
+		  
+    </div>
+</div>
+
+<div class="wrapper-container container">
+	<div class="row">
+		
+		<div class="col-md-6">
+		 <h3> Send your message <small> Fill all form to get in touch</small></h3>
+<?php echo Form::open(array('url'=>'home/contactform', 'class'=>'form-vertical','parsley-validate'=>'','novalidate'=>' ')); ?>
+	<?php if(Session::has('message')): ?>	  
+		   <?php echo Session::get('message'); ?>
+	<?php endif; ?>	
+		
+		<ul class="parsley-error-list">
+			<?php foreach($errors->all() as $error): ?>
+				<li><?php echo $error; ?></li>
+			<?php endforeach; ?>
+		</ul>
+
+		 <div class="form-group  ">
+		<label for="ipt"> Your Name</label>
+		  <?php echo Form::text('name', null,array('class'=>'form-control', 'placeholder'=>'', 'required'=>'Your Name'  )); ?> 
+		
+	  </div> 			
+						 					
+	  <div class="form-group  ">
+		<label for="ipt"> Your Email</label>
+		
+		  <?php echo Form::text('sender', null,array('class'=>'form-control', 'placeholder'=>'', 'required'=>'email'  )); ?> 
+		
+	  </div> 					
+	  <div class="form-group  ">
+		<label for="ipt"> Subject </label>
+		
+		  <?php echo Form::text('subject', null,array('class'=>'form-control', 'placeholder'=>'Subject', 'required'=>'true'   )); ?> 
+		 
+	  </div> 					
+	  <div class="form-group  ">
+		<label for="ipt"> Message </label>	
+		<?php echo Form::textarea('message',null,array('class'=>'form-control', 'placeholder'=>'Type your message here', 'required'=>'true'   )); ?>		 
+	  </div>
+	  <div class="form-group  ">
+		<button type="submit" class="btn btn-primary ">  Send Form </button>		 
+	  </div>
+	  <input name="redirect" value="contact-us" type="hidden">	  
+  
+<?php echo Form::close(); ?>		
+		</div>
+		
+		<div class="col-md-6 ">
+		<h3> Contact Information <small> Come to visit us  Find our address </small></h3>
+
+			<p>2011 Main St
+New York, NY 10044
+Tel: 123-456-2000
+Fax: 123-456-2200
+Email: info@freshbizdemo.com
+Web: www.mnkystudio.com</p>
+<h3> Social Media <small> Follow Us </small></h3>
+		<div class="team-social"> 
+			<a class="btn btn-rounded btn-warning btn-icon" title="RSS" href="#"><i class="fa fa-rss"></i></a> 
+			<a class="btn btn-rounded btn-info btn-icon" title="Twitter" href="#"><i class="fa fa-twitter"></i></a> 
+			<a class="btn btn-rounded btn-primary btn-icon" title="Facebook" href="#"><i class="fa fa-facebook"></i></a> 
+			<a class="btn btn-rounded btn-danger btn-icon" title="Google+" href="#"><i class="fa fa-google-plus"></i></a> 
+			<a class="btn btn-rounded btn-info btn-icon" title="LinkedIn" href="#"><i class="fa fa-linkedin"></i></a> 
+		</div>	
+<h3> Goole Location  <small> Come to visit us  Find our address </small></h3>
+<iframe style="margin-bottom:-5px;" src="http://maps.google.com/maps?q=5%2C+Wall+street%2C+New+York&iwloc=near&output=embed" class="su-gmap" frameborder="0" height="240" width="100%"></iframe>
+
+		
+		</div>
+	
+	</div>	
+</div>
+

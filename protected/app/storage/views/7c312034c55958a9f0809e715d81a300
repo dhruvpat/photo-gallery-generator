@@ -1,0 +1,38 @@
+
+<?php $i=1; $j=1;?>
+<?php foreach($dataarray as $row): ?>
+<article data-category="graphics photography" class="item">
+	<div class="image">
+		<a href="/<?php if($type == 'post' OR $type == 'tag') { echo "post/"; } ?><?php echo $row->slug; ?>">
+			<img src="<?php echo $row->img_src; ?>" alt="<?php echo $row->title; ?>" width="<?php echo $row->width_sm; ?>" height="<?php echo $row->height_sm; ?>" class="responsive">
+			<span class="hover"></span>
+		</a>
+	</div>
+	<section class="main">
+		<span class="title"><a href="/<?php if($type == 'post' OR $type == 'tag') { echo "post/"; } ?><?php echo $row->slug; ?>"><?php echo $row->title; ?></a></span><br />
+		<?php if($row->tag1 != "" AND $layout_type != 'post') { ?>
+		<span class="datebox">published in <b><a href="/tags/<?php echo $row->tag1; ?>"><?php echo ucwords(str_replace("-"," ",$row->tag1)); ?></a></b> on <b><?php echo date("d-m-Y", strtotime($row->publish_date)); ?></b></span>
+		<?php } elseif($layout_type != 'post') { ?>
+		<span class="datebox">published on <b><?php echo date("d-m-Y", strtotime($row->publish_date)); ?></b></span>
+
+		<?php } else {} ?>
+	</section>
+</article>
+<?php $i++; ?>
+
+<?php if($j =='2' AND Config::get('general.enable_ads') =='1'): ?> 
+<article data-category="graphics photography" class="item">
+<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'content1'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</article>
+<?php $i++; ?>
+<?php endif; ?>
+
+<?php if($j =='4' AND Config::get('general.enable_ads') =='1'): ?> 
+<article data-category="graphics photography" class="item">
+<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'content2'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</article>
+
+<?php $i++; ?>
+<?php endif; ?>
+<?php $j++; ?>
+<?php endforeach; ?>

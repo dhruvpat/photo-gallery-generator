@@ -1,0 +1,8 @@
+<article class="post page">
+	<section class="main clear">
+		<h1 class="title"><?php echo $meta_h1; ?></h1>
+			<div>
+			<?php echo $__env->make('pages.template.'.$filename.'', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+	</section>
+</article>

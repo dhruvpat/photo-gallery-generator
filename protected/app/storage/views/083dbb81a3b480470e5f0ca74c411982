@@ -1,0 +1,78 @@
+<?php /**/ $menus = SiteHelpers::menus('top') /**/ ?>
+ 	  <ul class="nav navbar-nav navbar-collapse collapse"  id="topmenu">
+		<?php foreach ($menus as $menu): ?>
+			 <li class="<?php if(Request::is($menu['module'])): ?> active <?php endif; ?>" >
+			 	<a href="<?php echo URL::to($menu['module']); ?>" 
+			 
+				 <?php if(count($menu['childs']) > 0 ): ?> class="dropdown-toggle" data-toggle="dropdown" <?php endif; ?>>
+			 		<i class="<?php echo $menu['menu_icons']; ?>"></i><span><?php echo $menu['menu_name']; ?></span>
+					<?php if(count($menu['childs']) > 0 ): ?>
+					 <b class="caret"></b> 
+					<?php endif; ?>  
+				</a> 
+				<?php if(count($menu['childs']) > 0): ?>
+					 <ul class="dropdown-menu">
+						<?php foreach ($menu['childs'] as $menu2): ?>
+						 <li class=" 
+						 <?php if(count($menu2['childs']) > 0): ?> dropdown-submenu <?php endif; ?>
+						 <?php if(Request::is($menu2['module'])): ?> active <?php endif; ?>">
+						 	<a href="<?php echo URL::to($menu2['module']); ?>" >
+								<i class="<?php echo $menu2['menu_icons']; ?>"></i> <?php echo $menu2['menu_name']; ?>
+							</a> 
+							<?php if(count($menu2['childs']) > 0): ?>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<?php foreach($menu2['childs'] as $menu3): ?>
+									<li <?php if(Request::is($menu3['module'])): ?> class="active" <?php endif; ?>>
+										<a href="<?php echo URL::to($menu3['module']); ?>" >
+											<span><?php echo $menu3['menu_name']; ?></span>  
+										</a>
+									</li>	
+								<?php endforeach; ?>
+							</ul>
+							<?php endif; ?>							
+							
+						</li>							
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
+			</li>
+		<?php endforeach; ?>  
+  </ul> 
+  
+    <ul class="nav navbar-nav navbar-collapse collapse  navbar-right" id="toolmenu">
+	<?php if(!Auth::check()): ?>  
+		<li><a href="<?php echo URL::to('user/login'); ?>"><i class="icon-arrow-right12"></i> Sign In</a></li>   
+	<?php else: ?>
+		<?php if(Session::get('gid') ==1): ?>
+		<li class="user dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-screen"></i> <span>Control Panel</span><i class="caret"></i></a>
+		  <ul class="dropdown-menu dropdown-menu-right icons-right">
+		   <li><a href="<?php echo URL::to('config/dashboard'); ?>"><i class="icon-stats-up"></i> Dashboard</a></li>
+		  	<li><a href="<?php echo URL::to('config'); ?>"><i class="icon-cog"></i> Settings</a></li>
+			
+			<li class="dropdown-submenu "><a href="<?php echo URL::to('users'); ?>" class="dropdown-toggle" data-toggle="dropdown" ><i class="icon-user"></i> Users & Groups</a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="<?php echo URL::to('users'); ?>"><i class="icon-user"></i> Users </a></li>
+					<li><a href="<?php echo URL::to('groups'); ?>"><i class="icon-user"></i> Groups </a></li>
+					<li><a href="<?php echo URL::to('config/blast'); ?>"><i class="icon-envelop"></i> Blast Email </a></li>	
+				</ul>
+			</li>
+					
+			<li class="divider"></li>
+			<li><a href="<?php echo URL::to('pages'); ?>"><i class="icon-envelop"></i> Page CMS </a></li>
+			<li><a href="<?php echo URL::to('module'); ?>"><i class="icon-bubble4"></i> Module & Builder</a></li>			
+			<li><a href="<?php echo URL::to('menu'); ?>"><i class="icon-paragraph-left"></i> Menu Management</a></li>
+			<li class="divider"></li>
+			<li><a href="<?php echo URL::to('config/template'); ?>"><i class="icon-grid"></i> Template Elements</a></li>
+			
+		  </ul>
+		</li>
+		<?php endif; ?>	
+		<li class="user dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-profile"></i> <span>Account</span><i class="caret"></i></a>
+		  <ul class="dropdown-menu dropdown-menu-right icons-right">
+			<li><a href="<?php echo URL::to('user/profile'); ?>"><i class="icon-user"></i> Profile</a></li>
+			<li><a href="<?php echo URL::to('user/logout'); ?>"><i class="icon-exit"></i> Logout</a></li>
+		  </ul>
+		</li>			
+		
+	<?php endif; ?> 
+  </ul>	 

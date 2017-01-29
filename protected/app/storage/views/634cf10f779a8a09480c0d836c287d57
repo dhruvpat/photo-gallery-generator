@@ -1,0 +1,17 @@
+
+
+	<!-- Portfolio small -->
+	<h1 class="title"><?php echo $meta_h1; ?></h1>
+	<section class="items small clear masonry">
+	
+	<!--Gallery Start-->
+		<?php echo $__env->make('theme.'.$theme_folder.'.content_imagelisting', array('type'=>'post','dataarray' => $posts), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	</section>
+	<!-- // Portfolio small -->
+
+
+	<div class="pagination">
+			<?php echo $posts->links(); ?>
+	</div>
+

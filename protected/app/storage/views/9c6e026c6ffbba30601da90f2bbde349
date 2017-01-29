@@ -1,0 +1,16 @@
+<div class="main alpha right-aside">
+
+	<section class="section">
+
+		<article class="post">
+
+		<h1 class="title"><?php echo $meta_h1; ?></h1>
+			<div>
+			<?php echo $content; ?>
+			</div>
+		</article>
+
+	</section>
+
+
+</div><!-- // .main -->

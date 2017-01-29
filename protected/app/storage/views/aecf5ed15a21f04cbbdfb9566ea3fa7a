@@ -1,0 +1,30 @@
+
+<?php $theme_folder = Config::get("general.theme_folder"); ?>
+
+<?php echo $__env->make('theme.'.$theme_folder.'.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php if ($layout_type == 'page'): ?>
+	<?php echo $__env->make('theme.'.$theme_folder.'.content_page', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+<?php elseif ($layout_type == 'post'): ?>
+	<?php echo $__env->make('theme.'.$theme_folder.'.content_post', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+<?php elseif ($layout_type == 'image'): ?>
+	<?php echo $__env->make('theme.'.$theme_folder.'.content_image', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php elseif ($layout_type == 'tag'): ?>
+	<?php echo $__env->make('theme.'.$theme_folder.'.content_tag', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php elseif ($layout_type == '404'): ?>
+	<?php echo $__env->make('theme.'.$theme_folder.'.404', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php else: ?>
+	<?php echo $__env->make('theme.'.$theme_folder.'.content_index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php endif; ?>
+
+<?php if (0): ?>
+<?php echo $__env->make('theme.'.$theme_folder.'.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php endif; ?>
+
+<?php echo $__env->make('theme.'.$theme_folder.'.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+ 
+ 

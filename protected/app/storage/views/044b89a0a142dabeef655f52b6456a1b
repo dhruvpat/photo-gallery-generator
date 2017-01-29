@@ -1,0 +1,38 @@
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="bottom">
+			<div class="outer-container">
+			</div>
+			<footer class="footer">
+				<div class="container">
+					<div class="section">
+						<ul class="footlnk">
+						<li><a href="/page/about">About</a></li>
+						<li><a href="/page/careers">Careers</a></li>
+						<li><a href="/page/contact">Contact</a></li>
+						<li><a href="/page/dmca">DMCA</a></li>
+						<li><a href="/page/terms-of-use">Terms of use</a></li>
+						<li><a href="/page/privacy-policy">Privacy policy</a></li>
+						<li><span class="small alpha">&copy; Copyright 2014</span></li>
+						</ul>
+						
+					</div>
+			
+				</div>
+			
+			</footer>
+		</div>
+<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+		<?php echo HTML::script('uploads/theme/js/jquery.flexslider.min.js'); ?>
+		<?php echo HTML::script('uploads/theme/js/time.min.js'); ?>
+		<?php echo HTML::script('uploads/theme/js/jquery.min.js'); ?>
+		<?php echo HTML::script('uploads/theme/js/jquery.easing.min.js'); ?>
+		<?php echo HTML::script('uploads/theme/js/jquery.fancybox.min.js'); ?>
+		
+		
+
+</body>
+</html>

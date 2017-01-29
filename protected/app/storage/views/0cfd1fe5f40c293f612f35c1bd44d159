@@ -1,0 +1,11 @@
+<div style="padding: 50px 20px;">
+<h1>Oops! We just encountered an error!</h1>
+Please select the relevant category to browse<br/>
+<ul>
+							<li><a href="/tags/cartoons">Cartoons</a></li>
+							<li><a href="/tags/animals">Animals</a></li>
+							<li><a href="/tags/alphabets">Alphabets</a></li>
+							<li><a href="/tags/numbers">Numbers</a></li>
+							<li><a href="/tags/general">General</a></li>
+						</ul>
+</div>

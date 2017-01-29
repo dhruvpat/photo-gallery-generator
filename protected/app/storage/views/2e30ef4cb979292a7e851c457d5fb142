@@ -1,0 +1,49 @@
+<div class="main alpha right-aside">
+
+	<section class="section">
+
+		<article class="post">
+			<?php if(count($tag1_array) != '0') { ?>
+			
+			<h1 class="title">Tags</h1>
+			<ul class="tags">
+			<?php foreach($tag1_array as $tag): ?>
+			<li><a href="/tags/<?php echo $tag->tag1; ?>"><?php echo $tag->tag1; ?></a></li>
+			<?php endforeach; ?>
+			</ul>
+			<?php } ?>
+			<h1 class="title"><?php echo $meta_h1; ?></h1>
+			
+			<?php $i=1; $j=1;?>
+			<?php foreach($posts as $post): ?>
+			<div class="<?php if ($i % 2 != 0) { print "mr10";} ?> thumbnail-container">
+			<a href="/post/<?php echo $post->slug; ?>"><img src="<?php echo $post->img_src; ?>" alt="<?php echo $post->img_title; ?>" width="<?php echo $post->img_width; ?>" height="<?php echo $post->img_height; ?>">
+			<span class="img-title"><?php echo $post->title; ?></a></span>
+			</div>
+			<?php $i++; ?>
+			<?php if($j =='2' AND Config::get('general.enable_ads') =='1'): ?> 
+			<div class="<?php if ($i % 2 != 0) { print "mr10";} ?> thumbnail-container">
+			<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'content1'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+			<?php $i++; ?>
+			<?php endif; ?>
+			
+			<?php if($j =='4' AND Config::get('general.enable_ads') =='1'): ?> 
+			<div class="<?php if ($i % 2 != 0) { print "mr10";} ?> thumbnail-container">
+			<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'content2'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+			<?php $i++; ?>
+			<?php endif; ?>
+			<?php $j++; ?>
+			<?php endforeach; ?>
+
+		</article>
+		<div  style="clear:both"></div>
+		<div class="pagination">
+			<?php echo $posts->links(); ?>
+		</div>
+
+	</section>
+
+
+</div><!-- // .main -->

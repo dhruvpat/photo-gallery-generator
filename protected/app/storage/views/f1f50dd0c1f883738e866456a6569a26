@@ -1,0 +1,9 @@
+<div style="padding: 50px 20px;">
+<h1>Oops we couldn't find what you were looking for</h1>
+Please select the relevant category to browse<br/>
+<ul>
+	<li><a href="/tags/animals">Animals</a></li>
+	<li><a href="/tags/plants-and-trees">Plants/Trees</a></li>
+	<li><a href="/tags/dinosaurs">Dinosaurs</a></li>
+</ul>
+</div>

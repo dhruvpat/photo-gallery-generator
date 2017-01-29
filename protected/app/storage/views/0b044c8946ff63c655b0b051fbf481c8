@@ -1,0 +1,91 @@
+<div class="main alpha right-aside">
+
+	<section class="section">
+
+		<article class="post">
+
+			<h1 class="title"><?php echo $meta_h1; ?></h1>
+
+			<?php foreach($imageinfo as $info): ?>
+			<div>
+			<a href="<?php echo $info->img_src_big; ?>">
+			<img src="<?php echo $info->img_src; ?>" alt="<?php echo $info->title; ?>" width="<?php echo $info->width_md; ?>" height="<?php echo $info->height_md; ?>" target="_blank">
+			</a>
+			<a name="error"></a>
+			<p>
+			<a style="float:left;" href="//www.pinterest.com/pin/create/button/?url=<?php echo $info->slug; ?>&media=<?php echo $info->img_src_big; ?>&description=<?php echo $info->title; ?>"  data-pin-do="buttonPin" data-pin-config="none"><img src="/uploads/theme/<?php echo Config::get('general.theme_folder'); ?>/img/pinit.png" style="float:left;"></a>
+			
+			<label style="margin-left:20px;">Label:</label> <?php echo $info->title; ?></p>
+			<?php if(Config::get('general.enable_ads') == '1'): ?> 
+			<div class="mr10">
+			<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'single2'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+			<?php endif; ?>
+			
+			<div class="imageinfo" style="float:left; width: 264px;">
+			<?php if($info->content != '') { echo '<p>'.$info->content.'</p>'; } ?>
+			<ul class="imagenote">
+			<li>Category: <?php echo ucwords($info->post_keyword); ?></li>
+			<li>Date: <?php echo date('m/d/y', strtotime($info->post_publish_date)); ?></li>
+			<li>Reference: <a href="<?php echo $info->external_link; ?>" target="_blank" rel="nofollow"><?php echo $info->original_domain; ?></a></li>
+			</ul>
+			<div class="downform" style="padding:10px; border: solid 2px #eee">
+			<h2>H2 Title Here</h2>
+			<?php echo Form::open(array('url' => 'download')); ?>
+			
+			   
+				<?php foreach($errors->all() as $message): ?>
+				 <p data-message-closable="true" class="message red"><i class="icon-cancel-circled"></i><?php echo $message; ?></p>
+				<?php endforeach; ?>
+				
+			<p>
+			<?php /* Width. ----------------------*/ ?>
+			<?php echo Form::label('width', 'Width'); ?>
+			<?php if(Input::old('width')) { ?><?php echo Form::text('width',Input::old('width')); ?><?php } else { ?><?php echo Form::text('width',$info->width_bg); ?><?php } ?>
+			<?php /* Height. ----------------------*/ ?>
+			x <?php echo Form::label('height', 'Height'); ?>
+			<?php if(Input::old('height')) { ?><?php echo Form::text('height',Input::old('height')); ?><?php } else { ?><?php echo Form::text('height',$info->height_bg); ?><?php } ?>
+			</p><p>
+			<?php /* Effect. ----------------------*/ ?>
+			<?php echo Form::label('effect', 'Effect'); ?>
+			<?php echo Form::select('effect', array('og' => 'Original', 'bw' => 'Black/White', 'sp' => 'Sepia'),Input::old('effect')); ?>
+			</p><p>
+			
+			
+			<?php echo Form::hidden('path', '/'.$info->keyword.'/'.$info->slug.'.'.$info->extension.''); ?>
+			<?php echo Form::hidden('slug', ''.$info->slug.''); ?>
+			<?php echo Form::hidden('extension', ''.$info->extension.''); ?>
+			<?php echo Form::hidden('currentwidth', ''.$info->width_bg.''); ?>
+			<?php echo Form::hidden('currentheight', ''.$info->height_bg.''); ?>
+			<?php echo Form::submit('Download'); ?>
+			</p>
+			<?php echo Form::close(); ?>
+			</div>
+			</div>
+			</div>
+			<?php endforeach; ?>
+
+		</article>
+		
+		<article class="post" style="padding-top:10px;">
+		
+		<h2>Related <?php echo $keyword; ?></h2>
+		
+		<?php $i=1 ?>
+		<?php foreach($allimages as $image): ?>
+		<div class="<?php if ($i % 2 != 0) { print "mr10";} ?> thumbnail-container">
+		<a href="/<?php echo $image->slug; ?>"><img src="<?php echo $image->img_src; ?>" alt="<?php echo $image->title; ?>" width="<?php echo $image->width_sm; ?>" height="<?php echo $image->height_sm; ?>">
+		<span class="img-title"><?php echo $image->title; ?></a></span>
+		</div>
+		<?php $i++ ?>
+		<?php endforeach; ?>
+		
+		</article>
+		
+		<article class="post">
+		<p class="message"><a href="/post/<?php echo $posturl; ?>">View all related images...</a></p>
+		</article>
+	</section>
+
+
+</div><!-- // .main -->

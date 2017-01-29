@@ -1,0 +1,131 @@
+<div class="page-content">
+    <!-- Page header -->
+    <div class="page-header">
+      <div class="page-title">
+        <h3> <?php echo $pageTitle; ?> <small><?php echo $pageNote; ?></small></h3>
+      </div>
+    </div>
+
+    <div class="breadcrumb-line">
+      <ul class="breadcrumb">
+        <li><a href="<?php echo URL::to(''); ?>">Home</a></li>
+		<li><a href="<?php echo URL::to('Posts'); ?>"><?php echo $pageTitle; ?></a></li>
+        <li class="active"> view </li>
+      </ul>
+ 	<div class="visible-xs breadcrumb-toggle">
+		<a class="btn btn-link btn-lg btn-icon" data-toggle="collapse" data-target=".breadcrumb-buttons">
+		<i class="icon-menu2"></i></a>
+	</div>	  
+	   <ul class="breadcrumb-buttons collapse">
+	   		<li><a href="<?php echo URL::to('Posts'); ?>" class="tips" title="Back"><i class="icon-table"></i>&nbsp;</a></li>
+			<?php if($access['is_add'] ==1): ?>
+	   		<li><a href="<?php echo URL::to('Posts/add/'.$id); ?>" class="tips" title="Edit"><i class="icon-pencil3"></i>&nbsp;</a></li>
+			<?php endif; ?>  
+			<?php if($access['is_remove'] ==1): ?>
+			<li ><a href="javascript://ajax"  onclick="SximoDelete();" class="tips"  title="remove"><i class="icon-bubble-trash"></i>&nbsp;</a></li>
+			<?php endif; ?> 	   
+	   </ul>
+	   	  
+	</div>  
+	 <?php echo Form::open(array('url'=>'Posts/destroy/', 'class'=>'form-horizontal' ,'ID' =>'SximoTable' )); ?>
+	 <input type="checkbox" style="display:none" checked="checked" class="ids"  name="id[]" value="<?php echo $id; ?>" />
+	<?php echo Form::close(); ?>
+	<div class="table-responsive">
+	<table class="table table-striped table-bordered" >
+		<tbody>	
+	
+					<tr>
+						<td width='30%' class='label-view text-right'>Id</td>
+						<td><?php echo $row->id; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Title</td>
+						<td><?php echo $row->title; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Excerpt</td>
+						<td><?php echo $row->excerpt; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Content</td>
+						<td><?php echo $row->content; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Slug</td>
+						<td><?php echo $row->slug; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Keyword</td>
+						<td><?php echo $row->keyword; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Featured</td>
+						<td><?php echo $row->featured; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Hits</td>
+						<td><?php echo $row->hits; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>User Id</td>
+						<td><?php echo $row->user_id; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Workflow Stage</td>
+						<td><?php echo $row->workflow_stage; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Active</td>
+						<td><?php echo $row->active; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Post Type</td>
+						<td><?php echo $row->post_type; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Publish Date</td>
+						<td><?php echo $row->publish_date; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created At</td>
+						<td><?php echo $row->created_at; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated At</td>
+						<td><?php echo $row->updated_at; ?> </td>
+						
+					</tr>
+				
+		</tbody>	
+	</table>    
+	</div>
+</div>
+	  

@@ -1,0 +1,24 @@
+<aside class="aside beta">
+
+	<section class="section">
+	<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'sidebar'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<h2>Latest Posts</h2>
+		
+		<!--Gallery Start-->
+			<?php $i=1 ?>
+			<?php foreach($latestposts as $post): ?>
+			<div class="<?php if ($i % 2 != 0) { print "mr10";} ?> smalltn">
+			<a href="/post/<?php echo $post->slug; ?>"><img src="<?php echo $post->img_src; ?>" alt="<?php echo $post->img_title; ?>" width="145" height="100">
+			<span><?php echo $post->title; ?></a></span>
+			</div>
+			<?php $i++ ?>
+			<?php endforeach; ?>
+			
+		
+		<div style="clear:both"></div>
+		
+		
+	</section>
+
+
+</aside>

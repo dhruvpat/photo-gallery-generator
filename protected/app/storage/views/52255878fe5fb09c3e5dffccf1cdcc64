@@ -1,0 +1,87 @@
+
+<!-- Full width -->
+					<article class="post page" style="margin-top:-10px">
+						<section class="main clear">
+							<h1 class="title"><?php echo $meta_h1; ?></h1>
+							<?php foreach($imageinfo as $info): ?>
+							<div class="content">
+
+								<?php if($info->content != '') { echo '<p>'.$info->content.'</p>'; } ?>
+
+								<div class="columns">
+									
+									<div class="column col-3-5">
+										<div class="image">
+										<a href="<?php echo $info->img_src_big; ?>">
+										<img src="<?php echo $info->img_src; ?>" alt="<?php echo $info->title; ?>" width="100%" target="_blank">
+										</a>
+										</div>
+										<p>
+										
+										<?php if(Config::get('general.enable_ads') == '1'): ?> 
+										<div>
+										<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'single1'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+										</div>
+										<?php endif; ?>
+										
+									</div>
+									<div class="column col-2-5 last">
+									
+										<?php if(Config::get('general.enable_ads') == '1'): ?> 
+										<div>
+										<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'single2'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+										</div>
+										<?php endif; ?>
+										<a style="float:left; margin-top:10px;width:100%" class="fltl" href="//www.pinterest.com/pin/create/button/?url=<?php echo $info->slug; ?>&media=<?php echo $info->img_src_big; ?>&description=<?php echo $info->title; ?>"  data-pin-do="buttonPin" data-pin-config="none"><img src="/uploads/img/pinit.png"></a>
+										
+										<ul style="padding-left:10px;float:left">
+											<li>Label: <?php echo $info->title; ?></li>
+											<li>Date: <?php echo date('m/d/y', strtotime($info->post_publish_date)); ?></li>
+											<li>Reference: <a href="<?php echo $info->external_link; ?>" target="_blank" rel="nofollow"><?php echo $info->original_domain; ?></a></li>
+										</ul>
+									<a name="error"></a>
+									</div>
+									
+								</div>
+
+							</div>
+							<?php endforeach; ?>
+						</section>
+					</article>
+					<!-- // Full width -->
+
+					<h2>Related <?php echo $keyword; ?></h2>
+					<section class="items small clear masonry">
+						
+						
+						<?php $i=1 ?>
+						<?php foreach($allimages as $image): ?>
+						<article data-category="graphics photography" class="item masonry-brick">
+							<div class="image">
+							<a href="/<?php echo $image->slug; ?>"><img src="<?php echo $image->img_src; ?>" alt="<?php echo $image->title; ?>" width="<?php echo $image->width_sm; ?>" height="<?php echo $image->height_sm; ?>"></a>
+							
+							</div>
+								<section class="main">
+								<span class="title"><a href="/<?php echo $image->slug; ?>"><?php echo $image->title; ?></a></span>
+								</section>
+						</article>
+						<?php $i++ ?>
+						
+							<?php if($i =='4' AND Config::get('general.enable_ads') =='1'): ?> 
+							<article data-category="graphics photography" class="item">
+							<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'content1'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+							</article>
+							<?php endif; ?>
+						
+						<?php endforeach; ?>
+						<article data-category="graphics photography" class="item masonry-brick">
+						<section class="main viewall">
+							<span class="title"><a href="/post/<?php echo $posturl; ?>">View all related images...</a></span>
+						</section>
+						</article>
+					</section>
+					
+					
+					
+					
+								

@@ -1,0 +1,30 @@
+<div class="sidebar-content">
+
+
+      <!-- Main navigation -->
+	  <?php /**/ $sidebar = SiteHelpers::menus('sidebar') /**/ ?>
+      <ul class="navigation">
+	  	<li class="bg-grey" ><a href="<?php echo URL::to('config/dashboard'); ?>"><span>Dashboard</span> <i class="icon-home"></i> </a></li>
+		<?php foreach ($sidebar as $menu): ?>
+			 <li <?php if(Request::is($menu['module'])): ?> class="active" <?php endif; ?>>
+			 	<a href="<?php echo URL::to($menu['module']); ?>" 
+			 
+				 <?php if(count($menu['childs']) > 0 ): ?> class="expand level-closed" <?php endif; ?>>
+			 		<span><?php echo $menu['menu_name']; ?></span>  <i class="<?php echo $menu['menu_icons']; ?>"></i>
+				</a> 
+				<?php if(count($menu['childs']) > 0): ?>
+					<ul>
+						<?php foreach ($menu['childs'] as $menu2): ?>
+						 <li <?php if(Request::is($menu2['module'])): ?> class="active" <?php endif; ?>>
+						 	<a href="<?php echo URL::to($menu2['module']); ?>" >
+								<span><?php echo $menu2['menu_name']; ?></span>  
+							</a> 
+						</li>							
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
+			</li>
+		<?php endforeach; ?>
+      </ul>
+      <!-- /main navigation -->
+ </div>

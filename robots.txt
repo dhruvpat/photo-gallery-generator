@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /goto/*
+Disallow: /*/terms*
+Disallow: /*/privacy*
+Disallow: /*/dmca*
+

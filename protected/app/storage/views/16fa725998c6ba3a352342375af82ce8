@@ -1,0 +1,59 @@
+<div class="main alpha right-aside">
+
+	<section class="section">
+
+		<article class="post">
+			<?php if($tag3 != '') { ?>
+
+			<?php } elseif ($tag2 != '' AND $show_tag) { ?>
+				
+				<h1 class="title">Tags</h1>
+				<ul class="tags">
+				<?php foreach($tag3_array as $tag): ?>
+				<li><a href="/tags/<?php echo $tag1; ?>/<?php echo $tag2; ?>/<?php echo $tag->tag3; ?>"><?php echo $tag->tag3; ?></a></li>
+				<?php endforeach; ?>
+				</ul>
+			
+			<?php } elseif ($show_tag) { ?>
+			<h1 class="title">Tags</h1>
+			<ul class="tags">
+			<?php foreach($tag2_array as $tag): ?>
+			<li><a href="/tags/<?php echo $tag1; ?>/<?php echo $tag->tag2; ?>"><?php echo $tag->tag2; ?></a></li>
+			<?php endforeach; ?>
+			</ul>
+			
+			
+			<?php } else {} ?>
+			<h1 class="title"><?php echo $meta_h1; ?></h1>
+			
+			<?php $i=1; $j=1;?>
+			<?php foreach($images as $image): ?>
+			<div class="<?php if ($i % 2 != 0) { print "mr10";} ?> thumbnail-container">
+			<a href="/<?php echo $image->filename; ?>"><img src="<?php echo $image->img_src; ?>" alt="<?php echo $image->title; ?>" width="<?php echo $image->width_sm; ?>" height="<?php echo $image->height_sm; ?>">
+			<span class="img-title"><?php echo $image->title; ?></a></span>
+			</div>
+			<?php $i++; ?>
+			<?php if($j =='2' AND Config::get('general.enable_ads') =='1'): ?> 
+			<div class="<?php if ($i % 2 != 0) { print "mr10";} ?> thumbnail-container">
+			<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'content1'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+			<?php $i++; ?>
+			<?php endif; ?>
+			
+			<?php if($j =='4' AND Config::get('general.enable_ads') =='1'): ?> 
+			<div class="<?php if ($i % 2 != 0) { print "mr10";} ?> thumbnail-container">
+			<?php echo $__env->make('theme.'.$theme_folder.'.ads', array('ad_type'=>'content2'), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+			<?php $i++; ?>
+			<?php endif; ?>
+			<?php $j++; ?>
+			<?php endforeach; ?>
+			
+		</article>
+
+
+
+	</section>
+
+
+</div><!-- // .main -->
